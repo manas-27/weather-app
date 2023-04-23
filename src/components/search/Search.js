@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { apiurl, options } from "../../api";
+import { apiurl, geoApiOptions } from "../../api";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = async (inputValue) => {
-    return fetch(`${apiurl}/cities?minPopulation=1000000`, options)
+    return fetch(`${apiurl}/cities?minPopulation=100000`, geoApiOptions)
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => {
+        return {
+          options: response.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name} ${city.countryCode}`,
+            };
+          }),
+        };
+      })
       .catch((err) => console.error(err));
   };
 

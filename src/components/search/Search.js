@@ -6,7 +6,7 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = async (inputValue) => {
-    return fetch(`${apiurl}/cities?minPopulation=100000`, geoApiOptions)
+    return fetch(`${apiurl}/cities?minPopulation=100`, geoApiOptions)
       .then((response) => response.json())
       .then((response) => {
         return {
@@ -26,13 +26,18 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
   return (
-    <AsyncPaginate
-      placeholder="search for city"
-      debounceTimeout={600}
-      value={search}
-      onChange={handleOnChange}
-      loadOptions={loadOptions}
-    />
+    <div>
+      {/* <div className="logo" style={{ width: "30%" }}>
+        WeatherCast
+      </div> */}
+      <AsyncPaginate
+        placeholder="search for city"
+        debounceTimeout={600}
+        value={search}
+        onChange={handleOnChange}
+        loadOptions={loadOptions}
+      />
+    </div>
   );
 };
 export default Search;

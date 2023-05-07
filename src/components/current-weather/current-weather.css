@@ -1,13 +1,16 @@
 .weather {
-  width: 35%;
+  width: 65%;
   border-radius: 6px;
   box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
   color: #fff;
-  background-color: #3f054e;
+  background-color: #cf0b66a6;
   margin: 20px auto 0 auto;
   padding: 0 20px 20px 20px;
 }
-
+.weather:hover {
+  background-color: #1e0225;
+  transition: 0.5s;
+}
 .top,
 .bottom {
   display: flex;
@@ -66,4 +69,26 @@
 
 .parameter-label.top {
   border-bottom: 1px solid #fff;
+}
+
+#dateTime {
+  background-color: #02220ab4;
+}
+
+#dateTime:hover {
+  background-color: #1e0225;
+}
+
+.time {
+  text-align: center;
+  font-size: 45px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+  font-size: 25px;
+  padding-top: 10px;
+  font-weight: 500;
 }

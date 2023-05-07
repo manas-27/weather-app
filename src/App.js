@@ -3,7 +3,10 @@ import "./App.css";
 import Search from "./components/search/Search";
 import CurrentWeather from "./components/current-weather/current-weather";
 import Forecast from "./components/forecast/forecast";
+import Clock from "./components/current-weather/clock";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
+import Preloader from "./components/preloader/Preloader";
+import Logo from "./logo.png";
 
 import "./App.css";
 
@@ -36,11 +39,24 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Search onSearchChange={handleOnSearchChange} />
-      {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast data={forecast} />}
-    </div>
+    <>
+      <Preloader />
+      <div className="container">
+        <Search onSearchChange={handleOnSearchChange} />
+        <section>
+          <div className="logo">
+            <img src={Logo} alt="Logo" />
+          </div>
+          <div style={{ marginLeft: "15px", width: "100%" }}>
+            <div className="clk">
+              <Clock />
+            </div>
+            {currentWeather && <CurrentWeather data={currentWeather} />}
+          </div>
+        </section>
+        {forecast && <Forecast data={forecast} />}
+      </div>
+    </>
   );
 }
 

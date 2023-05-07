@@ -4,10 +4,11 @@
 }
 
 .daily-item {
-  background-color: #bae3cf;
+  background-color: #09043abb;
   border-radius: 15px;
   height: 40px;
   margin: 5px;
+  height: 55px;
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -15,16 +16,22 @@
   padding: 5px 20px;
 }
 
+.daily-item:hover {
+  background-color: #20021ec9;
+  transition: 0.2s;
+}
+
 .icon-small {
-  width: 40px;
+  width: 60px;
 }
 
 .daily-item .day {
   cursor: inherit;
-  color: #212121;
+  color: #e4e65b;
   flex: 1 1;
   font-weight: 600;
   margin-left: 15px;
+  font-size: 16px;
 }
 
 .description {
@@ -32,13 +39,19 @@
   flex: 1 1;
   margin-right: 15px;
   text-align: right;
+  color: #f5f4f4;
+  font-size: 15px;
+  text-transform: capitalize;
 }
 
 .min-max {
-  color: #757575;
+  color: #f2ecec;
 }
 
 .daily-details-grid {
+  background-image: url("../../background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
   grid-row-gap: 0;
   grid-column-gap: 15px;
   -webkit-column-gap: 15px;
@@ -48,6 +61,7 @@
   grid-template-columns: auto auto;
   padding: 5px 15px;
   row-gap: 0;
+  border-radius: 30px;
 }
 
 .daily-details-grid-item {
@@ -58,9 +72,10 @@
 }
 
 .daily-details-grid-item label:first-child {
-  color: #757575;
+  color: #f5f4f4;
+  font-size: 17px;
 }
 
 .daily-details-grid-item label:last-child {
-  color: #212121;
+  color: #f0e8e8;
 }
